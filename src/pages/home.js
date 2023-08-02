@@ -13,7 +13,7 @@ export const Home = () => {
     useEffect(()=> {
         const fetchRecipies = async() => {
             try {
-                const response = await Axios.get("http://localhost:5000/recipie");
+                const response = await Axios.get("https://mern-recipie-server.onrender.com/recipie");
                 setRecipies(response.data);
                 console.log( response.data)
             } catch (error) {
@@ -24,7 +24,7 @@ export const Home = () => {
         const fetchSavedRecipies = async() => {
             try {
                 
-                const response = await Axios.get(`http://localhost:5000/recipie/saved-recipies/ids/${userID}`);
+                const response = await Axios.get(`https://mern-recipie-server.onrender.com/recipie/saved-recipies/ids/${userID}`);
                // console.log(response.data);
                setSavedRecipies(response.data.savedRecipies);
 
@@ -45,7 +45,7 @@ export const Home = () => {
     const saveRecipie = async(recipieID) => {
 
         try {
-            const response =await  Axios.put("http://localhost:5000/recipie", {recipieID, userID}, {headers: {authorization: cookies.access_token }});
+            const response =await  Axios.put("https://mern-recipie-server.onrender.com/recipie", {recipieID, userID}, {headers: {authorization: cookies.access_token }});
            alert('Recipie Saved :)')
            // console.log(response.data);
            setSavedRecipies(response.data.savedRecipies);
@@ -65,7 +65,7 @@ export const Home = () => {
     // custom Code for deleting operation
     const deleteRecipe = async (recipeID) => {
         try {
-          const response = await Axios.delete(`http://localhost:5000/recipie/${recipeID}`,  {
+          const response = await Axios.delete(`https://mern-recipie-server.onrender.com/recipie/${recipeID}`,  {
             headers: { authorization: cookies.access_token },
           });
           alert('Recipe Deleted :)');
