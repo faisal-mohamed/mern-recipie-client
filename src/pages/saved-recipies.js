@@ -11,7 +11,7 @@ export const SavedRecipies = () => {
     useEffect(() => {
         const fetchSavedRecipies = async () => {
             try {
-                const response =  await Axios.get(`http://localhost:5000/recipie/saved-recipies/${userID}`,{headers: {authorization: cookies.access_token }});
+                const response =  await Axios.get(`https://mern-recipie-server.onrender.com/recipie/saved-recipies/${userID}`,{headers: {authorization: cookies.access_token }});
                 setSavedRecipies(response.data.savedRecipies);
             } catch (error) {
                 console.log(error);
