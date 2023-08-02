@@ -44,7 +44,7 @@ export const CreateRecipie = () => {
             return ;
         }
         try {
-            await Axios.post("http://localhost:5000/recipie", recipie, {headers: {authorization: cookies.access_token }});
+            await Axios.post("https://mern-recipie-server.onrender.com/recipie", recipie, {headers: {authorization: cookies.access_token }});
             alert('Recipie Created');
             navigate('/');
         } catch (error) {
