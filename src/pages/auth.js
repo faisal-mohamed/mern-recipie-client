@@ -21,7 +21,7 @@ const Login = () => {
         event.preventDefault();
         try {
             
-           const response =  await Axios.post("http://localhost:5000/auth/login", {username, password});
+           const response =  await Axios.post("https://mern-recipie-server.onrender.com/auth/login", {username, password});
           //Here the response.data.token and response.data.userID is obtained from the backend router.post(login) request as a response. for more insight see the server logic of post login request
            setCookie("access_token", response.data.token);
            window.localStorage.setItem("UserID", response.data.userID);
@@ -47,7 +47,7 @@ const Register = () => {
     const handleSubmit = async (event) => {
             event.preventDefault();
            try {
-            await Axios.post("http://localhost:5000/auth/register", {username, password});
+            await Axios.post("https://mern-recipie-server.onrender.com/auth/register", {username, password});
             alert("Registration Successfull !, Now Login :)");
            } catch(err) {
             console.log(err);
